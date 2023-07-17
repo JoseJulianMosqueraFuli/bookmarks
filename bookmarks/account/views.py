@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
+from .forms import LoginForm, UserRegistrationForm
 
 
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(data=request.POST)
-        # Check the validity of submitted data and log in a valid user or return an error message to
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(
@@ -34,3 +33,18 @@ def dashboard(request):
         "account/dashboard.xhtml",
         {"section": "dashboard"},
     )
+
+
+def register(request):
+    if request.method == "POST":
+        user_form = UserRegistrationForm(data=request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data["password"])
+            new_user.save()
+            return render(
+                request, "account/register_done.xhtml", {"new_user": new_user}
+            )
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, "account/register.xhtml", {"user_form": user_form})
