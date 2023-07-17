@@ -7,7 +7,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
 
-class UserRegistrationForm:
+class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
     password_confirmation = forms.CharField(
         label="Repeat password", widget=forms.PasswordInput
@@ -20,5 +20,5 @@ class UserRegistrationForm:
     def clean_password_confirmation(self):
         cd = self.cleaned_data
         if cd["password"] != cd["password_confirmation"]:
-            raise forms.ValidationError("Password don't match")
+            raise forms.ValidationError("Password do not match")
         return cd["password_confirmation"]
