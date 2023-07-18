@@ -28,9 +28,10 @@ class UserRegistrationForm(forms.ModelForm):
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["firts_name", "last_name", "email"]
+        fields = ["first_name", "last_name", "email"]
 
 
-class ProfileEditForm:
-    model = Profile
-    fields = ["date_of_birth", "photo"]
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ["date_of_birth", "photo"]
