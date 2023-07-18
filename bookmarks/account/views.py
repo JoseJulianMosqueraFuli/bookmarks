@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm
+from .models import Profile
 
 
 def user_login(request):
