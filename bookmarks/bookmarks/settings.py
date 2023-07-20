@@ -150,3 +150,7 @@ AUTHENTICATION_BACKENDS = [
     "account.authentication.EmailAuthBackend",
     "social_core.backends.facebook.FacebookOAuth2",
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("FACEBOOK_APP_ID")
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("FACEBOOK_APP_SECRET")
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]  # Optional
