@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 
 
 class Image(models.Model):
@@ -24,3 +25,11 @@ class Image(models.Model):
 
     def __str__(self):
         return self.title
+
+    def generate_unique_slug_on_save(self):
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+    def save(self, *args, **kwargs):
+        self.generate_unique_slug_on_save()
+        super().save(*args, **kwargs)
