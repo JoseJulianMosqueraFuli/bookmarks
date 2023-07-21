@@ -8,3 +8,4 @@ django-extensions
 werkzeug
 pyOpenSSL
 python-dotenv
+requests
