@@ -1,6 +1,73 @@
 # Bookmarks
 
-This repository contains the code for a bookmarking application. In this chapter, we focused on building an authentication system for the site. Here are the key features implemented:
+This repository contains the code for a bookmarking application. That used Django Social Auth to add social authentication to your site using Facebook, Google, and Twitter.That run in development server with HTTPS on your local machine using Django Extensions. Customized the social authentication pipeline to create a user profile for new users automatically.
+
+## Getting Started
+
+To run this project on your local machine, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone git@github.com:JoseJulianMosqueraFuli/bookmarks.git
+```
+
+2. Create a virtual environment:
+
+```bash
+python3 -m venv venv
+```
+
+3. Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+```
+
+4. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Navigate into the cloned directory:
+
+```bash
+cd bookmarks
+```
+
+6. Create the `.env` file for authentication, similar to the `.env.example` file:
+
+```bash
+FACEBOOK_APP_ID = <App Identifier>
+FACEBOOK_APP_SECRET = <App Secret Key>
+TWITTER_API_KEY = <App Identifier>
+TWITTER_API_SECRET = <App Secret Key>
+GOOGLE_CLIENT_ID = <App Identifier>
+GOOGLE_CLIENT_SECRET = <App Secret Key>
+```
+
+7. Apply the database migrations:
+
+```bash
+python manage.py migrate
+```
+
+8. Start the development server:
+
+```bash
+python manage.py runserver
+```
+
+9. If you want to run the development server with HTTPS, use:
+
+```bash
+python manage.py runserver_plus --cert-file cert.pem
+```
+
+Now, you can access the application in your browser at [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Enjoy using the bookmarking application!
+
+## Key Features Implemented
 
 - User registration: Users can create an account by providing their username, email, and password.
 - User login: Registered users can log in to their accounts using their credentials.
@@ -11,13 +78,17 @@ This repository contains the code for a bookmarking application. In this chapter
 
 ## Next Steps
 
-In the next chapter, we will explore the implementation of social authentication using Python Social Auth. This will enable users to authenticate with their Google, Facebook, or Twitter accounts.
+We will learn how to create a JavaScript bookmarklet to share content from other sites on your website, and we will implement AJAX features in your project using JavaScript and Django.
 
-Additionally, we will cover serving the development server over HTTPS using Django Extensions. This ensures secure communication between the user's browser and the server.
+This chapter will cover the following points:
 
-Lastly, we will customize the authentication pipeline to automatically create user profiles upon registration.
-
-Stay tuned for the upcoming chapter to learn more about these exciting features and how to integrate them into your bookmarking application!
+- Creating many-to-many relationships
+- Customizing behavior for forms
+- Using JavaScript with Django
+- Building a JavaScript bookmarklet
+- Generating image thumbnails using easy-thumbnails
+- Implementing asynchronous HTTP requests with JavaScript and Django
+- Building infinite scroll pagination
 
 ## License
 
