@@ -24,6 +24,6 @@ def image_create(request):
         form = ImageCreateForm(data=request.GET)
     return render(
         request,
-        "images/image/create.html",
+        "images/image/create.xhtml",
         {"section": "images", "form": form},
     )

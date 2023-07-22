@@ -26,7 +26,7 @@ urlpatterns = [
         include("social_django.urls", namespace="social"),
     ),
     path(
-        "/images",
+        "images/",
         include("images.urls", namespace="images"),
     ),
 ]
