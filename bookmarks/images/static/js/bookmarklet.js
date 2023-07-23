@@ -10,3 +10,13 @@ link.rel = 'stylesheet'; // set the attributes for link element
 link.type = 'text/css';
 link.href = styleUrl + '?r=' + Math.floor(Math.random() * 9999999999999999);
 head.appendChild(link);  // Append link element to HTML head
+
+// load HTML
+var body = document.getElementsByTagName('body')[0];
+boxHtml = `
+  <div id="bookmarklet">
+    <a href="#" id="close">&times;</a>
+    <h1>Select an image to bookmark:</h1>
+    <div class="images"></div>
+  </div>`;
+body.innerHTML += boxHtml;
