@@ -59,9 +59,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-9. If you want to run the development server with HTTPS, use:
+9. _Optional_: If you want to run the development server with HTTPS, use:
 
-   **NOTE**: Remember that you have to configure your [hosts](https://www.hostinger.com/tutorials/how-to-edit-hosts-file) for https configuration.
+   **_NOTE_**: Remember that you have to configure your [hosts](https://www.hostinger.com/tutorials/how-to-edit-hosts-file) for https configuration.
 
 ```bash
 python manage.py runserver_plus --cert-file cert.pem
