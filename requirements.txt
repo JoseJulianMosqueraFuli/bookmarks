@@ -9,3 +9,4 @@ werkzeug
 pyOpenSSL
 python-dotenv
 requests
+easy-thumbnails
