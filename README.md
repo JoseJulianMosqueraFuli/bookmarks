@@ -77,20 +77,28 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 - Password management: Users can change their passwords and reset them if they forget.
 - Custom user profiles: A model is implemented to store additional information about each user, such as their date of birth and profile photo.
 - Custom authentication backend: An authentication backend is added to allow users to log in using their email address instead of their username.
-
-## Next Steps
-
-We will learn how to create a JavaScript bookmarklet to share content from other sites on your website, and we will implement AJAX features in your project using JavaScript and Django.
-
-This chapter will cover the following points:
-
 - Creating many-to-many relationships
 - Customizing behavior for forms
 - Using JavaScript with Django
 - Building a JavaScript bookmarklet
 - Generating image thumbnails using easy-thumbnails
 - Implementing asynchronous HTTP requests with JavaScript and Django
+
+## Next Steps
+
+We will learn improve the project.
+
+This improvements could be cover the following points:
+
 - Building infinite scroll pagination
+- Building a follow system
+- Creating an activity stream application
+- Adding generic relations to models
+- Optimizing QuerySets for related objects
+- Using signals for denormalizing counts
+- Using Django Debug Toolbar to obtain relevant debug information
+- Counting image views with Redis
+- Creating a ranking of the most viewed images with Redis
 
 ## License
 
