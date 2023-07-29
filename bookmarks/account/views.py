@@ -92,7 +92,7 @@ def user_detail(request, username):
     user = get_object_or_404(
         User,
         username=username,
-        is_activate=True,
+        is_active=True,
     )
     return render(
         request, "account/user/detail.xhtml", {"section": "people", "user": user}
