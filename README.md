@@ -83,6 +83,8 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 - Building a JavaScript bookmarklet
 - Generating image thumbnails using easy-thumbnails
 - Implementing asynchronous HTTP requests with JavaScript and Django
+- Building infinite scroll pagination
+- Building a follow system
 
 ## Next Steps
 
@@ -90,8 +92,6 @@ We will learn improve the project.
 
 This improvements could be cover the following points:
 
-- Building infinite scroll pagination
-- Building a follow system
 - Creating an activity stream application
 - Adding generic relations to models
 - Optimizing QuerySets for related objects
