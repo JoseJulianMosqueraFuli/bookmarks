@@ -7,6 +7,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 from .forms import LoginForm, UserRegistrationForm, ProfileEditForm, UserEditForm
 from .models import Profile, Contact
+from actions.utils import create_action
 
 
 def user_login(request):
@@ -47,6 +48,7 @@ def register(request):
             new_user.set_password(user_form.cleaned_data["password"])
             new_user.save()
             Profile.objects.create(user=new_user)
+            create_action(new_user, "has create")
             return render(
                 request, "account/register_done.xhtml", {"new_user": new_user}
             )
@@ -110,7 +112,11 @@ def user_follow(request):
         try:
             user = User.objects.get(user_id=user_id)
             if action == "follow":
-                Contact.objects.get_or_create(user_from=request.user, user_to=user)
+                Contact.objects.get_or_create(
+                    user_from=request.user,
+                    user_to=user,
+                )
+                create_action(request.user, "is following", user)
             else:
                 Contact.objects.filter(user_from=request.user, user_to=user).delete()
             return JsonResponse({"status": "ok"})
