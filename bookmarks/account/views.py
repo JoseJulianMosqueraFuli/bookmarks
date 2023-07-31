@@ -5,9 +5,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
+
 from .forms import LoginForm, UserRegistrationForm, ProfileEditForm, UserEditForm
 from .models import Profile, Contact
+
 from actions.utils import create_action
+from actions.models import Action
 
 
 def user_login(request):
@@ -33,10 +36,16 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list("id", flat=True)
+    if following_ids:
+        # If user is following others, retrieve only their actions
+        actions = actions.filter(user_id__in=following_ids)
+        actions = actions[:10]
     return render(
         request,
         "account/dashboard.xhtml",
-        {"section": "dashboard"},
+        {"section": "dashboard", "actions": actions},
     )
 
 
