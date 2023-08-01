@@ -11,7 +11,7 @@ class Image(models.Model):
         on_delete=models.CASCADE,
     )
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, blank=True, unique=True)
+    slug = models.SlugField(max_length=200, blank=True)
     url = models.URLField(max_length=2000)
     image = models.ImageField(upload_to="images/%Y/%m/%d/")
     description = models.TextField(blank=True)
@@ -19,23 +19,21 @@ class Image(models.Model):
     users_like = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="images_liked", blank=True
     )
+    total_likes = models.PositiveIntegerField(default=0)
 
     class Meta:
-        db_table = "image"
         indexes = [
             models.Index(fields=["-created"]),
+            models.Index(fields=["-total_likes"]),
         ]
         ordering = ["-created"]
 
     def __str__(self):
         return self.title
 
-    def generate_unique_slug_on_save(self):
+    def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-
-    def save(self, *args, **kwargs):
-        self.generate_unique_slug_on_save()
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
