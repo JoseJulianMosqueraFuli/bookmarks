@@ -188,3 +188,11 @@ ABSOLUTE_URL_OVERRIDES = {
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# Alternative for compatibility with browser and other devices thant recognition the Javascript and CSS provided by Django.
+
+# if DEBUG:
+#     import mimetypes
+
+#     mimetypes.add_type("application/javascript", ".js")
+#     mimetypes.add_type("text/css", ".css", True)
