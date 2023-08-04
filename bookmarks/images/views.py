@@ -44,7 +44,7 @@ def image_create(request):
 
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
-    total_views = r.incr(f"image: {image.id}, views")
+    total_views = r.incr(f"image:{image.id}:views")
     r.zincrby("image_ranking", 1, image.id)
     return render(
         request,
@@ -56,19 +56,19 @@ def image_detail(request, id, slug):
 @login_required
 @require_POST
 def image_like(request):
-    try:
-        image_id = request.POST.get("id")
-        action = request.POST.get("action")
-        if image_id and action:
+    image_id = request.POST.get("id")
+    action = request.POST.get("action")
+    if image_id and action:
+        try:
             image = Image.objects.get(id=image_id)
-            if image == "like":
+            if action == "like":
                 image.users_like.add(request.user)
                 create_action(request.user, "likes", image)
             else:
                 image.users_like.remove(request.user)
             return JsonResponse({"status": "ok"})
-    except Image.DoesNotExist:
-        pass
+        except Image.DoesNotExist:
+            pass
     return JsonResponse({"status": "error"})
 
 
@@ -87,16 +87,13 @@ def image_list(request):
             return HttpResponse("")
         images = paginator.page(paginator.num_pages)
     if images_only:
-        return (
+        return render(
             request,
-            "images/image/list_images",
+            "images/image/list_images.xhtml",
             {"section": "images", "images": images},
         )
-
     return render(
-        request,
-        "images/image/list.xhtml",
-        {"section": "images", "images": images},
+        request, "images/image/list.xhtml", {"section": "images", "images": images}
     )
 
 
@@ -106,7 +103,6 @@ def image_ranking(request):
     image_ranking_ids = [int(id) for id in image_ranking]
     most_viewed = list(Image.objects.filter(id__in=image_ranking_ids))
     most_viewed.sort(key=lambda x: image_ranking_ids.index(x.id))
-
     return render(
         request,
         "images/image/ranking.xhtml",
