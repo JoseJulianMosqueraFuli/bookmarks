@@ -4,7 +4,7 @@ This repository contains the code for a bookmarking application. That used Djang
 
 ## Getting Started
 
-To run this project on your local machine, follow these steps:
+To run this project on your local machine require docker, follow these steps:
 
 1. Clone the repository:
 
@@ -47,21 +47,28 @@ GOOGLE_CLIENT_ID = <App Identifier>
 GOOGLE_CLIENT_SECRET = <App Secret Key>
 ```
 
-7. Apply the database migrations:
+7. Start docker and run:
+
+```bash
+docker pull redis
+docker run -it --rm --name redis -p 6379:6379 redis
+```
+
+8. Apply the database migrations:
 
 ```bash
 python manage.py migrate
 ```
 
-8. Start the development server:
+9. Start the development server:
 
 ```bash
 python manage.py runserver
 ```
 
-9. _Optional_: If you want to run the development server with HTTPS, use:
+10. _Optional_: If you want to run the development server with HTTPS, use:
 
-   **_NOTE_**: Remember that you have to configure your [hosts](https://www.hostinger.com/tutorials/how-to-edit-hosts-file) for https configuration.
+    **_NOTE_**: Remember that you have to configure your [hosts](https://www.hostinger.com/tutorials/how-to-edit-hosts-file) for https configuration.
 
 ```bash
 python manage.py runserver_plus --cert-file cert.pem
@@ -85,13 +92,6 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 - Implementing asynchronous HTTP requests with JavaScript and Django
 - Building infinite scroll pagination
 - Building a follow system
-
-## Next Steps
-
-We will learn improve the project.
-
-This improvements could be cover the following points:
-
 - Creating an activity stream application
 - Adding generic relations to models
 - Optimizing QuerySets for related objects
@@ -99,6 +99,14 @@ This improvements could be cover the following points:
 - Using Django Debug Toolbar to obtain relevant debug information
 - Counting image views with Redis
 - Creating a ranking of the most viewed images with Redis
+
+## Next Steps
+
+We will learn improve the project.
+
+This improvements could be cover the following points:
+
+- Create Test
 
 ## License
 
