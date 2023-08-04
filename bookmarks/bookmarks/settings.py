@@ -196,3 +196,7 @@ INTERNAL_IPS = [
 
 #     mimetypes.add_type("application/javascript", ".js")
 #     mimetypes.add_type("text/css", ".css", True)
+
+REDIS_HOST = "localhost"
+REDIS_PORT = 6379
+REDIS_DB = 0
