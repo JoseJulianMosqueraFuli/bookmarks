@@ -4,7 +4,7 @@ This repository contains the code for a bookmarking application. That used Djang
 
 ## Getting Started
 
-To run this project on your local machine require docker, follow these steps:
+#### To run this project on your local machine require docker, follow these steps:
 
 1. Clone the repository:
 
@@ -35,7 +35,7 @@ GOOGLE_CLIENT_SECRET = <App Secret Key>
 docker-compose up --build
 ```
 
-Or Manual configuration use:
+#### Or Manual configuration use:
 
 1. Clone the repository:
 
@@ -133,7 +133,7 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 
 ## Next Steps
 
-This improvements could be cover the following points:
+These improvements could be cover the following points:
 
 - Create Test
 - Always could improve
