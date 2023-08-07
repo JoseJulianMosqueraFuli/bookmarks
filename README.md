@@ -12,6 +12,37 @@ To run this project on your local machine require docker, follow these steps:
 git clone git@github.com:JoseJulianMosqueraFuli/bookmarks.git
 ```
 
+2. Navigate into the repository:
+
+```bash
+cd bookmarks
+```
+
+3. Create the `.env` file for authentication, similar to the `.env.example` file:
+
+```bash
+FACEBOOK_APP_ID = <App Identifier>
+FACEBOOK_APP_SECRET = <App Secret Key>
+TWITTER_API_KEY = <App Identifier>
+TWITTER_API_SECRET = <App Secret Key>
+GOOGLE_CLIENT_ID = <App Identifier>
+GOOGLE_CLIENT_SECRET = <App Secret Key>
+```
+
+4. Run docker command:
+
+```bash
+docker-compose up --build
+```
+
+Or Manual configuration use:
+
+1. Clone the repository:
+
+```bash
+git clone git@github.com:JoseJulianMosqueraFuli/bookmarks.git
+```
+
 2. Create a virtual environment:
 
 ```bash
@@ -102,11 +133,10 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 
 ## Next Steps
 
-We will learn improve the project.
-
 This improvements could be cover the following points:
 
 - Create Test
+- Always could improve
 
 ## License
 
