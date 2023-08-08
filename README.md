@@ -1,6 +1,6 @@
-# Bookmarks
+# Bookmarks Images Social Website
 
-This repository contains the code for a bookmarking application. That used Django Social Auth to add social authentication to your site using Facebook, Google, and Twitter.That run in development server with HTTPS on your local machine using Django Extensions. Customized the social authentication pipeline to create a user profile for new users automatically.
+This repository contains the code for an image bookmarking application like a social website. That used Django Social Auth to add social authentication to your site using Facebook, Google, and Twitter. That runs in a development server with HTTPS on your local machine using Django Extensions. Customized the social authentication pipeline to create a user profile for new users automatically.
 
 ## Getting Started
 
@@ -29,7 +29,7 @@ GOOGLE_CLIENT_ID = <App Identifier>
 GOOGLE_CLIENT_SECRET = <App Secret Key>
 ```
 
-4. Run docker command:
+4. Run the docker command:
 
 ```bash
 docker-compose up --build
@@ -133,7 +133,7 @@ Now, you can access the application in your browser at [http://127.0.0.1:8000/](
 
 ## Next Steps
 
-These improvements could be cover the following points:
+These improvements could cover the following points:
 
 - Create Test
 - Always could improve
